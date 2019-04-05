@@ -22,6 +22,7 @@ before_build:
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - mingw32-make.exe
+  - ls release
   - 7z -tZip a $(appveyor_build_version).zip ./release/* -mx5
 
 deploy:
@@ -30,6 +31,5 @@ deploy:
   artifact: /.*\.zip/
   auth_token:
     secure: f213a9ad25f1cb1e96a2b564af9200919333a69d
-  on:
-    branch: master
-    appveyor_repo_tag: true
+  branch: master
+  appveyor_repo_tag: true
