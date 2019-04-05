@@ -22,10 +22,11 @@ before_build:
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - mingw32-make.exe
+  - ls release
   - mkdir package
   - mv release/sakura.exe package
   - cd package
-  - windeployqt sakura.exe --qmldir %QTDIR%\qml
+  - windeployqt --qmldir %QTDIR%\qml --release sakura.exe 
   - cd ..
   - 7z -tZip a sakura.zip ./package/* -mx9
 
