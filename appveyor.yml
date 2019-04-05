@@ -35,9 +35,9 @@ deploy:
   provider: GitHub
   artifact: /.*\.zip/
   auth_token:
-    secure: f213a9ad25f1cb1e96a2b564af9200919333a69d
+    secure: tT0tHEXbHWmIhS1YY+JPuYATx7uZeZsk9mciX0bchMtFQBx4XHSZmJ3IpFkNFCnU
   draft: false
   prerelease: false
   on:
-    branch: master                 # release from master branch only
+    branch: master
     APPVEYOR_REPO_TAG: true
