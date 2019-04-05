@@ -31,4 +31,5 @@ deploy:
   auth_token:
     secure: f213a9ad25f1cb1e96a2b564af9200919333a69d
   on:
-      appveyor_repo_tag: true
+    branch: master
+    appveyor_repo_tag: true
