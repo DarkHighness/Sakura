@@ -21,6 +21,7 @@ Window {
     Material.primary: "#212121"
     Material.accent: Material.Blue
 
+
     Audio{
         id: player
         volume: volume.value
@@ -176,13 +177,13 @@ Window {
 
     RoundButton {
         id: nextButton
-        y: 92
-        width: 45
-        height: 45
+        y: 100
+        width: 36
+        height: 36
         text: ""
         display: AbstractButton.IconOnly
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 460
+        anchors.bottomMargin: 465
         anchors.left: parent.left
         anchors.leftMargin: 160
 
@@ -191,13 +192,13 @@ Window {
 
     RoundButton {
         id: playButton
-        y: 92
-        width: 45
-        height: 45
+        y: 99
+        width: 36
+        height: 36
         text: ""
         display: AbstractButton.IconOnly
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 460
+        anchors.bottomMargin: 465
         anchors.left: parent.left
         anchors.leftMargin: 100
         icon.source: player.playbackState == Audio.PlayingState ? "baseline-pause-24px.svg" : "baseline-play_arrow-24px.svg"
@@ -211,13 +212,13 @@ Window {
 
     RoundButton {
         id: previousButton
-        y: 92
-        width: 45
-        height: 45
+        y: 100
+        width: 36
+        height: 36
         text: ""
         display: AbstractButton.IconOnly
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 460
+        anchors.bottomMargin: 465
         anchors.left: parent.left
         anchors.leftMargin: 40
 

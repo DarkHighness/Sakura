@@ -110,8 +110,8 @@ Item {
             }
             RoundButton{
                     id: queryPlayButton
-                    width: 36
-                    height: 36
+                    width: 24
+                    height: 24
                     anchors.right: parent.right
                     anchors.rightMargin: 130
                     anchors.verticalCenter: parent.verticalCenter
@@ -124,8 +124,8 @@ Item {
             }
             RoundButton{
                 id: queryLikeButton
-                width: 36
-                height: 36
+                width: 24
+                height: 24
                 anchors.right: parent.right
                 anchors.rightMargin: 80
                 anchors.verticalCenter: parent.verticalCenter
@@ -135,8 +135,8 @@ Item {
             }
             RoundButton{
                 id: queryDownloadButton
-                width: 36
-                height: 36
+                width: 24
+                height: 24
                 anchors.right: parent.right
                 anchors.rightMargin: 30
                 anchors.verticalCenter: parent.verticalCenter

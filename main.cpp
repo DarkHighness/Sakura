@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    QQuickStyle::setStyle("Material");
+    //QQuickStyle::setStyle("Material");
 
     QFont font("等距更纱黑体 HC");
 

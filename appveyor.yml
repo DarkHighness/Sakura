@@ -15,7 +15,7 @@ install:
   - mingw32-make.exe --version
 
 before_build:
-  - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\shared
+  - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin;
   - cd %APPVEYOR_BUILD_FOLDER%
   - qmake -Wall -Wlogic -Wparser CONFIG+=%CONFIGURATION%
 
