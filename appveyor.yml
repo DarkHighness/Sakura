@@ -27,13 +27,13 @@ build_script:
   - cd package
   - windeployqt sakura.exe --qmldir %QTDIR%\qml
   - cd ..
-  - 7z -tZip a $(appveyor_build_version).zip ./package/* -mx5
+  - 7z -tZip a sakura.zip ./package/* -mx9
 
 deploy:
   release: Sakura-v$(appveyor_build_version)
   description: 'New Release'
   provider: GitHub
-  artifact: $(appveyor_build_version).zip
+  artifact: sakura.zip
   auth_token:
     secure: tT0tHEXbHWmIhS1YY+JPuYATx7uZeZsk9mciX0bchMtFQBx4XHSZmJ3IpFkNFCnU
   draft: false
