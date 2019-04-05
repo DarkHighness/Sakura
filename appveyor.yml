@@ -12,7 +12,7 @@ install:
   - qmake -v
   - if %QTDIR:_64=%==%QTDIR% ( set ARCH=x86 ) else set ARCH=x64
   - g++ --version
-  - mingw32-make.exe
+  - mingw32-make.exe --version
 
 before_build:
   - set PATH=%PATH%;%QTDIR%\bin;C:\MinGW\bin;C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\shared
