@@ -29,11 +29,14 @@ build_script:
   - cd ..
   - 7z -tZip a sakura.zip ./package/* -mx9
 
+artifacts:
+  - path: '*.zip'
+    name: sakura-archive
+
 deploy:
   release: Sakura-v$(appveyor_build_version)
   description: 'New Release'
   provider: GitHub
-  artifact: sakura.zip
   auth_token:
     secure: tT0tHEXbHWmIhS1YY+JPuYATx7uZeZsk9mciX0bchMtFQBx4XHSZmJ3IpFkNFCnU
   draft: false
