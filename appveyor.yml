@@ -22,14 +22,22 @@ before_build:
 build_script:
   - cd %APPVEYOR_BUILD_FOLDER%
   - mingw32-make.exe
-  - ls release
-  - 7z -tZip a $(appveyor_build_version).zip ./release/* -mx5
+  - mkdir package
+  - mv release/sakura.exe package
+  - cd package
+  - windeployqt sakura.exe --qmldir %QTDIR%\qml
+  - cd ..
+  - 7z -tZip a $(appveyor_build_version).zip ./package/* -mx5
 
 deploy:
-  provider: GitHub
+  release: Sakura-v$(appveyor_build_version)
   description: 'New Release'
+  provider: GitHub
   artifact: /.*\.zip/
   auth_token:
     secure: f213a9ad25f1cb1e96a2b564af9200919333a69d
-  branch: master
-  appveyor_repo_tag: true
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    APPVEYOR_REPO_TAG: true
