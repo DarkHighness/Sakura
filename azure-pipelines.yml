@@ -43,4 +43,9 @@ steps:
       CHERE_INVOKING: yes
   - task: CopyFiles@2
     inputs:
-      targetFolder: $(Agent.BuildDirectory)
+      contents: 'sakura.zip'
+      targetFolder: $(Build.ArtifactStagingDirectory)
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: BuildOutput
