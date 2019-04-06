@@ -8,16 +8,13 @@ import "Utils.js" as Util
 
 Item {
     id: root
-    width: 780
-    height: 420
-
-    Material.theme: Material.Light
-    Material.primary: "#212121"
-    Material.accent: Material.Blue
+    implicitWidth: 780
+    implicitHeight: 620
 
     TextField {
         id: inputNameField
-        height: 36
+        width: 300
+        height: 30
         text: qsTr("")
         bottomPadding: 6
         topPadding: 6
@@ -28,15 +25,6 @@ Item {
         anchors.top: parent.top
         anchors.topMargin: 15
         anchors.horizontalCenter: parent.horizontalCenter
-
-        background: Rectangle {
-            implicitWidth: 200
-            implicitHeight: 40
-            color: "white"
-            border.color: inputNameField.enabled ? Material.accent : "transparent"
-            radius: 3
-            antialiasing: true
-        }
 
         onAccepted: {
             Util.query("netease",inputNameField.text)
@@ -62,15 +50,17 @@ Item {
     ListView {
         id: songView
         width: 780
+        spacing: 1
+        cacheBuffer: 30
         antialiasing: true
         anchors.top: parent.top
-        anchors.topMargin: 60
+        anchors.topMargin: 70
         anchors.right: parent.right
         anchors.rightMargin: 8
         anchors.left: parent.left
         anchors.leftMargin: 8
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 35
+        anchors.bottomMargin: 40
         delegate: Item {
             id: songDelegate
             width: 780
@@ -82,6 +72,7 @@ Item {
 
             Text {
                 text: name
+                font.pixelSize: 16
                 elide: Text.ElideRight
                 anchors.left: parent.left
                 anchors.leftMargin: 40
@@ -97,6 +88,7 @@ Item {
             Text {
                 width: 223
                 text: artist
+                font.pixelSize: 16
                 elide: Text.ElideRight
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -110,8 +102,8 @@ Item {
             }
             RoundButton{
                     id: queryPlayButton
-                    width: 24
-                    height: 24
+                    width: 36
+                    height: 36
                     anchors.right: parent.right
                     anchors.rightMargin: 130
                     anchors.verticalCenter: parent.verticalCenter
@@ -124,8 +116,8 @@ Item {
             }
             RoundButton{
                 id: queryLikeButton
-                width: 24
-                height: 24
+                width: 36
+                height: 36
                 anchors.right: parent.right
                 anchors.rightMargin: 80
                 anchors.verticalCenter: parent.verticalCenter
@@ -135,8 +127,8 @@ Item {
             }
             RoundButton{
                 id: queryDownloadButton
-                width: 24
-                height: 24
+                width: 36
+                height: 36
                 anchors.right: parent.right
                 anchors.rightMargin: 30
                 anchors.verticalCenter: parent.verticalCenter
@@ -151,6 +143,28 @@ Item {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

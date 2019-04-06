@@ -7,11 +7,7 @@ import QtLocation 5.12
 
 Item {
     implicitWidth: 780
-    implicitHeight: 420
-
-    Material.theme: Material.Light
-    Material.primary: "#212121"
-    Material.accent: Material.Blue
+    implicitHeight: 620
 
     Rectangle{
         id: background
@@ -25,9 +21,6 @@ Item {
             currentIndex: 0
             anchors.fill: parent
 
-            width: 720
-            height: 360
-
             QueryPage {
                 id: queryPage
             }
@@ -37,6 +30,9 @@ Item {
             }
             Item {
                 id: thirdPage
+            }
+            Item {
+                id: forthPage
             }
         }
 

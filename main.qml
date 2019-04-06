@@ -13,13 +13,9 @@ Window {
     id: root
     visible: true
     width: 800
-    height: 600
+    height: 800
     color: "#00000000"
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WA_TranslucentBackground
-
-    Material.theme: Material.Light
-    Material.primary: "#212121"
-    Material.accent: Material.Blue
 
 
     Audio{
@@ -32,7 +28,7 @@ Window {
         anchors.fill: parent
         anchors.margins: 10
         radius: 10
-        anchors.bottomMargin: 450
+        anchors.bottomMargin: 644
         z: -1
         border.width: 0
         color: Material.primary
@@ -59,6 +55,7 @@ Window {
         horizontalOffset: 3
         verticalOffset: 3
         radius: 8.0
+        cached: false
         samples: 17
         color: "#80000000"
         source: background
@@ -69,13 +66,11 @@ Window {
         stepSize: 1
         to: player.duration
         anchors.right: parent.right
-        anchors.rightMargin: 120
+        anchors.rightMargin: 110
         anchors.left: parent.left
-        anchors.leftMargin: 220
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 453
+        anchors.leftMargin: 200
         anchors.top: parent.top
-        anchors.topMargin: 88
+        anchors.topMargin: 120
         value: player.position
 
         onMoved: {
@@ -166,7 +161,7 @@ Window {
             }
 
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 35
+            anchors.bottomMargin: 15
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignRight
             anchors.right: parent.right
@@ -177,30 +172,28 @@ Window {
 
     RoundButton {
         id: nextButton
-        y: 100
-        width: 36
-        height: 36
+        width: 48
+        height: 48
         text: ""
+        anchors.top: parent.top
+        anchors.topMargin: 102
         display: AbstractButton.IconOnly
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 465
         anchors.left: parent.left
-        anchors.leftMargin: 160
+        anchors.leftMargin: 148
 
         icon.source: "baseline-skip_next-24px.svg"
     }
 
     RoundButton {
         id: playButton
-        y: 99
-        width: 36
-        height: 36
+        width: 48
+        height: 48
         text: ""
+        anchors.top: parent.top
+        anchors.topMargin: 102
         display: AbstractButton.IconOnly
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 465
         anchors.left: parent.left
-        anchors.leftMargin: 100
+        anchors.leftMargin: 94
         icon.source: player.playbackState == Audio.PlayingState ? "baseline-pause-24px.svg" : "baseline-play_arrow-24px.svg"
         onClicked: {
             if(player.playbackState == Audio.PlayingState)
@@ -212,13 +205,12 @@ Window {
 
     RoundButton {
         id: previousButton
-        y: 100
-        width: 36
-        height: 36
+        width: 48
+        height: 48
         text: ""
+        anchors.top: parent.top
+        anchors.topMargin: 102
         display: AbstractButton.IconOnly
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 465
         anchors.left: parent.left
         anchors.leftMargin: 40
 
@@ -229,13 +221,13 @@ Window {
         id: volume
         value: 0.6
         anchors.top: parent.top
-        anchors.topMargin: 70
+        anchors.topMargin: 76
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 460
+        anchors.bottomMargin: 654
         anchors.right: parent.right
-        anchors.rightMargin: 36
+        anchors.rightMargin: 30
         anchors.left: parent.left
-        anchors.leftMargin: 690
+        anchors.leftMargin: 696
         antialiasing: true
         stepSize: 0.01
         to: 1
@@ -255,10 +247,11 @@ Window {
             id: handleItem
             x: volume.background.x + volume.background.width / 2 - width / 2
             y: volume.background.y + volume.background.height / 2 - height / 2
-            width: 16
-            height: 16
+            width: 12
+            height: 12
             color: Material.accent
-            radius: 8
+            radius: 6
+            border.width: 0
             antialiasing: true
             transform: [
                 Translate {
@@ -276,8 +269,10 @@ Window {
             id: muteButton
             x: 44
             y: 18
-            width: 24
-            height: 24
+            width: 36
+            height: 36
+            anchors.verticalCenterOffset: 0
+            anchors.horizontalCenterOffset: 0
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             antialiasing: true
@@ -345,10 +340,12 @@ Window {
 
     Text {
         id: songNameDisplay
-        width: 300
+        width: 400
         height: 40
         color: "#ffffff"
         text: "等待加载中..."
+        anchors.right: parent.right
+        anchors.rightMargin: 352
         elide: Text.ElideRight
         anchors.left: parent.left
         anchors.leftMargin: 40
@@ -372,13 +369,14 @@ Window {
 
     BottomControls {
         id: bottomControls
-        height: 420
+        y: 160
+        height: 620
         anchors.right: parent.right
         anchors.rightMargin: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
-        anchors.topMargin: 165
+        anchors.topMargin: 170
     }
 
 }

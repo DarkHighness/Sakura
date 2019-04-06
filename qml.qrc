@@ -18,5 +18,7 @@
         <file>baseline-arrow_downward-24px.svg</file>
         <file>baseline-favorite_border-24px.svg</file>
         <file>baseline-pause-24px.svg</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>icon.ico</file>
     </qresource>
 </RCC>

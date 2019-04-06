@@ -1,7 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QQuickStyle>
-#include <QFont>
+#include <QFontDatabase>
+
+QString loadFont(){
+    int fontId = QFontDatabase::addApplicationFont(
+                QCoreApplication::applicationDirPath() + "sarasa-mono-sc-regular.ttf");
+    if(fontId == -1)
+        return "Microsoft Yahei";
+    return QFontDatabase::applicationFontFamilies(fontId).at(0);
+}
 
 int main(int argc, char *argv[])
 {
@@ -9,9 +16,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
-    //QQuickStyle::setStyle("Material");
-
-    QFont font("等距更纱黑体 HC");
+    QFont font(loadFont());
 
     QGuiApplication::setFont(font);
 
