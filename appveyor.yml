@@ -44,7 +44,7 @@ branches:
 
 deploy:
   release: Sakura-v$(appveyor_build_version)
-  description: 'New Release'
+  description: 'A Brand New Version of the Project uh!'
   provider: GitHub
   auth_token:
     secure: tT0tHEXbHWmIhS1YY+JPuYATx7uZeZsk9mciX0bchMtFQBx4XHSZmJ3IpFkNFCnU
