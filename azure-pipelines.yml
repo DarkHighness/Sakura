@@ -11,9 +11,6 @@ pool:
 
 strategy:
   matrix:
-    i686:
-      MSYSTEM: MINGW32
-      MSYS2_ARCH: i686
     x86_64:
       MSYSTEM: MINGW64
       MSYS2_ARCH: x86_64
