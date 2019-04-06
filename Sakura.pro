@@ -35,4 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     qtquickcontrols2.conf \
     icon.ico \
-    sarasa-mono-sc-regular.ttf
+    sarasa-mono-sc-regular.ttf \
+    PlayListPage.qml \
+    baseline-volume_mute-24px.svg \
+    queryWorker.mjs

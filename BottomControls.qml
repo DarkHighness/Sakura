@@ -25,9 +25,10 @@ Item {
                 id: queryPage
             }
 
-            Item {
-                id: secondPage
+            PlayListPage {
+                id: playListPage
             }
+
             Item {
                 id: thirdPage
             }

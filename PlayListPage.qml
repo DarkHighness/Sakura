@@ -10,60 +10,18 @@ Item {
     implicitWidth: 780
     implicitHeight: 620
 
-    TextField {
-        id: inputNameField
-        width: 300
-        height: 30
-        text: qsTr("")
-        bottomPadding: 6
-        topPadding: 6
-        antialiasing: true
-        font.pointSize: 12
-        font.capitalization: Font.Capitalize
-        placeholderText: "等待搜索中..."
-        anchors.top: parent.top
-        anchors.topMargin: 15
-        anchors.horizontalCenter: parent.horizontalCenter
+    id: playListPage
 
-        onAccepted: {
-            Util.query("netease",inputNameField.text)
-        }
-
-        RoundButton {
-            id: searchBottom
-            x: 337
-            y: 30
-            width: 36
-            height: 36
-            antialiasing: true
-            anchors.right: parent.right
-            anchors.rightMargin: -46
-            anchors.verticalCenter: parent.verticalCenter
-            icon.source: "baseline-search-24px.svg"
-            onClicked: {
-                //Util.query("netease",inputNameField.text)
-                queryWorker.sendMessage({action : "query",platform:"netease",name:inputNameField.text,model: songView.model })
-            }
-        }
-    }
-
-    WorkerScript{
-        id: queryWorker
-        source: "queryWorker.mjs"
-
-        onMessage: {
-
-        }
-    }
+    property ListView view : playListView
 
     ListView {
-        id: songView
+        id: playListView
         width: 780
         spacing: 1
         cacheBuffer: 30
         antialiasing: true
         anchors.top: parent.top
-        anchors.topMargin: 70
+        anchors.topMargin: 49
         anchors.right: parent.right
         anchors.rightMargin: 8
         anchors.left: parent.left
@@ -71,13 +29,14 @@ Item {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 40
         delegate: Item {
-            id: songDelegate
+            id: playListDelegate
             width: 780
             height: 30
 
             property string purl: url
             property string pname: name
             property string partist: artist
+            property int pindex: index
 
             Text {
                 text: name
@@ -110,7 +69,7 @@ Item {
                 color: "white"
             }
             RoundButton{
-                    id: queryPlayButton
+                    id: playListPlayButton
                     width: 36
                     height: 36
                     anchors.right: parent.right
@@ -120,11 +79,11 @@ Item {
                     antialiasing: true
                     icon.source: "baseline-play_arrow-24px.svg"
                     onClicked: {
-                        Util.play(purl,pname,partist)
+                        Util.playAt(pindex,partist,pname)
                     }
             }
             RoundButton{
-                id: queryLikeButton
+                id: playListLikeButton
                 width: 36
                 height: 36
                 anchors.right: parent.right
@@ -135,7 +94,7 @@ Item {
                 icon.source: "baseline-favorite_border-24px.svg"
             }
             RoundButton{
-                id: queryDownloadButton
+                id: playListRemoveButton
                 width: 36
                 height: 36
                 anchors.right: parent.right
@@ -143,7 +102,7 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 display: AbstractButton.IconOnly
                     antialiasing: true
-                    icon.source: "baseline-arrow_downward-24px.svg"
+                    icon.source: "baseline-remove-24px.svg"
             }
         }
         model: ListModel {
@@ -151,6 +110,25 @@ Item {
         }
     }
 
+    Text {
+        color: "#ffffff"
+        text: qsTr("歌曲名称")
+        anchors.left: parent.left
+        anchors.leftMargin: 45
+        anchors.top: parent.top
+        anchors.topMargin: 27
+        font.pixelSize: 16
+    }
+
+    Text {
+        color: "#ffffff"
+        text: qsTr("歌手")
+        anchors.top: parent.top
+        anchors.topMargin: 27
+        anchors.left: parent.left
+        anchors.leftMargin: 380
+        font.pixelSize: 16
+    }
 }
 
 
@@ -159,45 +137,7 @@ Item {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*##^## Designer {
-    D{i:4;anchors_height:350;anchors_width:764;anchors_x:8;anchors_y:62}
+    D{i:9;anchors_x:45;anchors_y:52}D{i:10;anchors_x:235;anchors_y:70}
 }
  ##^##*/

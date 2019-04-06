@@ -20,7 +20,18 @@ function query(platform,name) {
 
 function play(url,name,artist){
     player.stop();
-    player.source = url;
+    player.playlist.addItem(url);
+    var index = player.playlist.itemCount - 1
+    player.playlist.currentIndex = index
+    player.play()
+    playListPage.view.model.append({name: name, artist: artist, url: url, index: index })
+    artistDisplay.text = artist
+    songNameDisplay.text = name
+}
+
+function playAt(index,artist,name){
+    player.stop();
+    player.playlist.currentIndex = index
     player.play()
     artistDisplay.text = artist
     songNameDisplay.text = name

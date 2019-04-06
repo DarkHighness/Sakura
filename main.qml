@@ -21,6 +21,9 @@ Window {
     Audio{
         id: player
         volume: volume.value
+        playlist: Playlist{
+            id: playerPlayList
+        }
     }
 
     Rectangle{
@@ -277,7 +280,8 @@ Window {
             anchors.horizontalCenter: parent.horizontalCenter
             antialiasing: true
             display: AbstractButton.IconOnly
-            icon.source: "baseline-volume_up-24px.svg"
+            icon.source: player.muted ? "baseline-volume_muted-24px.svg" : "baseline-volume_up-24px.svg"
+            onClicked: player.muted = !player.muted
         }
 
         Text {
@@ -380,6 +384,8 @@ Window {
     }
 
 }
+
+
 
 
 
