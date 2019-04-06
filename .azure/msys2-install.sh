@@ -10,4 +10,5 @@ pacman --noconfirm -S --needed \
     base-devel \
     git \
     mingw-w64-x86_64-toolchain \
-    mingw-w64-x86_64-qt5  
+    mingw-w64-x86_64-qt5 \
+    p7zip  
