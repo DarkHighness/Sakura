@@ -34,12 +34,13 @@ steps:
       CHERE_INVOKING: yes
   - script: |
       set PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;%CD:~0,2%\msys64\mingw64\bin
-      qmake -Wall -Wlogic -Wparser CONFIG+=release
-      mingw32-make.exe
-      ls release
-      mkdir package
-      mv release/sakura.exe package
-      mv sarasa-mono-sc-regular.ttf package
-      cd package
-      windeployqt --qmldir %CD:~0,2%\msys64\mingw64\share\qt5\qml --release --no-patchqt --libdir ./libs --plugindir ./plugins sakura.exe
-      7z -tZip a sakura.zip ./package/* -mx9
+      %CD:~0,2%\msys64\usr\bin\bash -lc ".azure/msys2-build.sh"
+    displayName: Build
+    env:
+      MSYS2_ARCH: $(MSYS2_ARCH)
+      MSYSTEM: $(MSYSTEM)
+      SRC_DIR: $(Build.SourcesDirectory)
+      CHERE_INVOKING: yes
+  - task: CopyFiles@2
+    inputs:
+      targetFolder: $(Agent.BuildDirectory)
