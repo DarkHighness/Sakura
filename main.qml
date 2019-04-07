@@ -24,6 +24,10 @@ Window {
         playlist: Playlist{
             id: playerPlayList
         }
+        onStatusChanged: {
+            if(player.status == Audio.Loaded)
+                player.play()
+        }
     }
 
     Rectangle{
