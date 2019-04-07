@@ -19,7 +19,8 @@ function query(platform,name) {
 }
 
 function play(url,name,artist){
-    player.stop();
+    if(player.playbackState === 1)
+        player.stop();
     player.playlist.addItem(url);
     var index = player.playlist.itemCount - 1
     player.playlist.currentIndex = index
